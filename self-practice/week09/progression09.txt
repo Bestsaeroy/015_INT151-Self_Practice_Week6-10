@@ -1,0 +1,51 @@
+Practice 2 From Class (Week 09)
+
+1) หน้าเว็บถูกโหลด (Page Load)
+   - Browser โหลด index.html
+   - script ui.js และ quote.js ถูกนำเข้ามาใช้งาน
+   - ฟังก์ชัน renderQuotes() ทำงานครั้งแรก (ยังไม่มี quote แสดง)
+
+2) เลือก DOM Elements
+   - ui.js ใช้ document.getElementById() เพื่อเชื่อมตัวแปรกับ DOM เช่น
+     #quote-list, #quoteForm, #content, #author, #quoteId, #randomBtn, #randomQuoteDisplay
+
+3) Render รายการ Quote
+   - renderQuotes() ดึงข้อมูลทั้งหมดจาก getAllQuotes()
+   - วนลูปเพื่อแสดง quote ในหน้าเว็บ (ถ้ายังไม่มี ข้ามขั้นตอนนี้)
+
+4) ผู้ใช้กรอกข้อมูลแล้วกดปุ่ม “Save Quote”
+   - Event form.addEventListener("submit") ถูกเรียกใช้งาน
+   - e.preventDefault() ป้องกันไม่ให้หน้าเว็บ refresh
+   - อ่านค่าจาก contentInput และ authorInput
+
+5) ตรวจสอบค่าว่าง
+   - ถ้า content หรือ author เป็นค่าว่าง → alert() และหยุดการทำงาน
+
+6) ตัดสินใจว่าเป็น Add หรือ Edit
+   - ถ้า idInput ไม่มีค่า → เพิ่มใหม่ด้วย addQuote(content, author)
+   - ถ้า idInput มีค่า → อัปเดต quote เดิมด้วย updateQuote(id, content, author)
+
+7) อัปเดต DOM
+   - ถ้าเป็น Add → ใช้ addQuoteToDOM() สร้าง card ใหม่ในหน้าเว็บ
+   - ถ้าเป็น Edit → ใช้ updateQuoteInDOM() เพื่อแก้ไขข้อความใน card เดิม
+
+8) เคลียร์ฟอร์ม
+   - form.reset()
+   - idInput ถูกล้างค่าเพื่อเตรียมรับ quote ใหม่
+
+9) ผู้ใช้กดปุ่ม “Edit” บน card
+   - ระบบเติมค่ากลับลง form (content, author, id)
+   - ผู้ใช้สามารถกด Save เพื่อแก้ไข quote นั้น
+
+10) ผู้ใช้กดปุ่ม “Delete” บน card
+   - deleteQuote(id) ลบข้อมูลใน array
+   - deleteQuoteFromDOM(id) ลบ element ออกจากหน้าเว็บ
+
+11) ผู้ใช้กดปุ่ม “Show Random Quote”
+   - randomBtn เรียกใช้ showRandomQuote()
+   - ถ้า array ว่าง → แสดงข้อความ “-- No quotes to show --”
+   - ถ้ามีข้อมูล → สุ่ม quote หนึ่งอันและแสดง
+
+12) ผู้ใช้สามารถ Add / Edit / Delete / Random ได้ตลอด
+   - ทุกอย่างเกิดขึ้นเฉพาะใน DOM และ Array
+   - หน้าไม่รีเฟรช และ UI อัปเดตแบบ Real-time
