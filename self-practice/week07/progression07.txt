@@ -1,0 +1,54 @@
+WEEK07 - Thanakorn Chitsue
+[1] Create Element
+-----------------------------------------
+สิ่งที่ทำ:
+- ใช้ document.createElement() เพื่อสร้าง element ใหม่ เช่น <h1>, <p>, <img>, <button>
+
+ความเข้าใจที่ได้:
+การสร้าง DOM element ด้วย JavaScript ช่วยให้เราสามารถเพิ่มเนื้อหาแบบ Dynamic
+โดยไม่ต้องเขียน HTML ทิ้งไว้ตั้งแต่แรก ทำให้ควบคุม UI ตามเงื่อนไขหรือข้อมูลได้
+
+ตัวอย่าง:
+const h1 = document.createElement('h1');
+
+-----------------------------------------
+[2] Append Element
+-----------------------------------------
+สิ่งที่ทำ:
+- ใช้ appendChild() เพื่อแทรก element ที่สร้างไว้ลงไปใน DOM จริง
+- ในแบบฝึก เรานำ element ที่สร้างไปใส่ใน <div id="container">
+
+ความเข้าใจที่ได้:
+เมื่อเรา appendChild() element จะเข้าไปเป็นส่วนหนึ่งของ DOM tree และแสดงในหน้าเว็บทันที
+
+ตัวอย่าง:
+container.appendChild(h1);
+
+-----------------------------------------
+[3] Text Content (innerHTML / innerText / textContent)
+-----------------------------------------
+สิ่งที่ทำ:
+สร้าง <p> 3 แบบ และให้ข้อความเหมือนกัน ได้แก่ "<b>Bold Text</b>"
+แล้วใช้ method ต่างกันเพื่อเปรียบเทียบผลลัพธ์
+
+ความแตกต่าง:
+- innerHTML     : ตีความ HTML Tag และแสดงผลเป็นตัวหนาจริง
+- innerText     : แสดงเป็นตัวอักษรธรรมดา โดยไม่ตีความ HTML
+- textContent   : คล้าย innerText แต่มีประสิทธิภาพและตรงไปตรงมามากกว่า
+
+ผลการเรียนรู้ที่สำคัญ:
+ถ้าต้องการให้ tag ทำงาน → ใช้ innerHTML
+ถ้าต้องการแค่ตัวอักษร → ใช้ innerText หรือ textContent
+
+-----------------------------------------
+[4] Set Attribute
+-----------------------------------------
+สิ่งที่ทำ:
+ใช้ setAttribute() เพื่อใส่ attribute ให้ element เช่น
+- <p data-info="intro">
+- <img src="">, <img alt="">
+- <button type="button">
+
+setAttribute() ช่วยให้เรากำหนดข้อมูลเสริมหรือ behavior ให้ element
+เหมาะกับการสร้าง element แบบ dynamic เช่น ใส่ src ของรูปจาก database
+
